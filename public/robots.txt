@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.pass-autoservice.de/sitemap.xml
+Sitemap: https://pass-autoservice.de/sitemap.xml
