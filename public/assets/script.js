@@ -10,6 +10,19 @@ document.querySelectorAll(".hours tr[data-days]").forEach((row) => {
 // Jahreszahl im Footer
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
+// Google-Karte erst nach Klick laden
+document.querySelectorAll("[data-map-load]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const box = btn.closest("[data-map-src]");
+    const frame = document.createElement("iframe");
+    frame.src = box.dataset.mapSrc;
+    frame.title = "Karte: Pass Autoservice, Industriestraße 43, 53721 Siegburg";
+    frame.loading = "lazy";
+    frame.referrerPolicy = "no-referrer-when-downgrade";
+    box.replaceWith(frame);
+  });
+});
+
 // Sektionen beim Scrollen einblenden
 const items = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
