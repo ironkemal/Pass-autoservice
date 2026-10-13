@@ -159,10 +159,9 @@ p { margin: 0 0 1em; }
   color: #ffffffb3; display: grid; place-items: center; text-align: center; padding: 24px;
   border: 2px solid var(--ink); object-fit: cover;
 }
-.photo--sign { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; }
-.photo--sign strong { font: 800 clamp(2.8rem, 6vw, 5rem)/.9 var(--display); text-transform: uppercase; color: var(--signal); }
-.hero__media .photo--sign { justify-content: flex-start; padding-top: 22%; } /* Platz für das Ticket unten */
-.ticket {
+img.photo { padding: 0; height: auto; }
+.hero__media img.photo { object-position: 50% 80%; }
+.hero__media .ticket {
   position: absolute; left: -36px; bottom: 28px; width: min(270px, 80%);
   background: #fff; border: 2px solid var(--ink); border-radius: var(--radius);
   box-shadow: 6px 6px 0 var(--ink); padding: 16px 18px 14px; transform: rotate(-2.5deg);
@@ -225,6 +224,16 @@ p { margin: 0 0 1em; }
 .fact + .fact { padding-left: 18px; border-left: 1px solid #ffffff2e; }
 .fact__val { font: 800 clamp(2.4rem, 4.5vw, 3.4rem)/1 var(--display); color: var(--signal); }
 .fact__lbl { margin-top: 8px; color: #b9b6ad; }
+
+/* Einblicke – Galerie */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.gallery figure { margin: 0; position: relative; border: 2px solid var(--ink); border-radius: var(--radius); overflow: hidden; background: var(--ink); }
+.gallery img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.gallery figure:hover img { transform: scale(1.04); }
+.gallery figcaption {
+  position: absolute; left: 10px; bottom: 10px;
+  background: var(--signal); color: var(--signal-ink); border: 2px solid var(--ink); padding: 5px 8px;
+}
 
 /* Ablauf */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: step; }
@@ -316,7 +325,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
-  .services { grid-template-columns: repeat(2, 1fr); }
+  .services, .gallery { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 860px) {
   .nav a:not(.btn) { display: none; }
@@ -336,8 +345,7 @@ p { margin: 0 0 1em; }
   .hero__cta .btn { flex: 1 1 100%; justify-content: center; }
   .hero__media { justify-self: stretch; max-width: none; margin-bottom: 24px; }
   .hero__media .photo { aspect-ratio: 4 / 3; }
-  .hero__media .photo--sign { aspect-ratio: 1 / 1; padding-top: 32px; gap: 10px; }
-  .ticket { left: 10px; bottom: -24px; width: 240px; font-size: .95em; }
+  .hero__media   .ticket { left: 10px; bottom: -24px; width: 240px; font-size: .95em; }
   .facts { grid-template-columns: 1fr; }
   .fact + .fact { padding-left: 0; border-left: 0; border-top: 1px solid #ffffff2e; }
   .fact { padding: 18px 0; }

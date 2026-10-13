@@ -2,3 +2,6 @@
 Thumbs.db
 .wrangler/
 node_modules/
+
+# Fremdfotos von Google Maps (Rechte beim Urheber, nicht veröffentlichen)
+maps-fotos/
